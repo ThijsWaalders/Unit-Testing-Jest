@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "jest": "^27.4.7"
   },
   "name": "project-unit-testing-jest",
@@ -249,7 +250,7 @@
     "yargs-parser": "^20.2.9"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --watchAll --verbose"
   },
   "keywords": [],
   "author": "",
