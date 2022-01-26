@@ -35,12 +35,3 @@ const url = 'json';
 test('typeOf should be json file', () => {
     expect(functions.checkValue(url)).toBe('json');
 });
-
-// test('Fetch url should be json', () => {
-//    const json = json;
-//     expect(functions.isJson()).toMatch(json);
-// });
-
-// test('Should be Array', () => {
-//     expect(functions.isArray()).toBeArray();
-// });

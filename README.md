@@ -8,11 +8,11 @@
     - [Let Jest Use Coverage](#let-jest-use-coverage)
     - [Generate a Basic Configuration File](#generate-a-basic-configuration-file)
     - [Intellisense](#intellisense)
-    - [Adding Modules / Edit Jest Config File](#adding-modules--edit-jest-config-file)
-    - [Add Globals](#add-globals)
     - [Check if Jest Works or Not](#check-if-jest-works-or-not)
   - [Guide](#guide)
-  - [More Detailed Testing With --coverage](#more-detailed-testing-with---coverage)
+    - [Guide - Add Globals](#guide---add-globals)
+    - [Guide - Adding Modules / Edit Jest Config File](#guide---adding-modules--edit-jest-config-file)
+    - [Guide - Mock any Function / API](#guide---mock-any-function--api)
   - [Resource(s)](#resources)
 
 ## TDD
@@ -74,43 +74,9 @@ Create a new (or edit already existing) `jsconfig.json` and add the following co
 
 Now you should get autocompletion for Jest in VScode.
 
-### Adding Modules / Edit Jest Config File
-
-Since Jest 27+, node is now the default `testEnvironment`. If you need to use `jQuery` in jest setup script, make sure to first change the `testEnvironment` back to `jsdom`.
-
-By answering the question when using `jest --init` or edit the `jest.config.js` file if there already is one in your project root dir:
-
-```js
-module.exports = {
-  // setupFilesAfterEnv: ['./jest.setup.js'],
-  testEnvironment: 'jsdom'
-}
-```
-
-Note, you can also use a `jest.setup.js` file, but you'll need to uncomment the `// setupFilesAfterEnv: ['./jest.setup.js'],` line.
-
-Then import the module (here it's jquery) at the beginning of your `*.test.js` file (or use the `jest.setup.js` file):
-
-```js
-const $ = require('jquery');
-```
-
-### Add Globals
-
-After running `jest --init` in your folder, in the `jest.config.js` file Jest makes, scroll down to find:
-
-```js
-// A set of global variables that need to be available in all test environments
-// globals: {},
-```
-
-Uncomment the second line and put all your globals in there.
-
-Example to use google api: `globals: {"google":{}},`.
 ### Check if Jest Works or Not
 
 - Check if jest installation works and run jest with `npm test`.
-
 
 ## Guide
 
@@ -140,15 +106,47 @@ const functions = {
 module.exports = functions;
 ```
 
-## More Detailed Testing With --coverage
+### Guide - Add Globals
 
-You can use `jest --coverage` as your npm test script to create a full report in html.
+After running `jest --init` in your folder, in the `jest.config.js` file Jest makes, scroll down to find:
 
-Use JSDocs for the real code?
+```js
+// A set of global variables that need to be available in all test environments
+// globals: {},
+```
 
-[devhints.io/jest](https://devhints.io/jest)
+Uncomment the second line and put all your globals in there.
 
-[devhints.io/jsdoc](https://devhints.io/jsdoc)
+Example to use google api: `globals: {"google":{}},`.
+
+See [jestjs.io/docs](https://jestjs.io/docs/configuration#globals-object) for more information about globals-object.
+
+### Guide - Adding Modules / Edit Jest Config File
+
+Since Jest 27+, node is now the default `testEnvironment`. If you need to use `jQuery` in jest setup script, make sure to first change the `testEnvironment` back to `jsdom`.
+
+By answering the question when using `jest --init` or edit the `jest.config.js` file if there already is one in your project root dir:
+
+```js
+module.exports = {
+  // setupFilesAfterEnv: ['./jest.setup.js'],
+  testEnvironment: 'jsdom'
+}
+```
+
+Note, you can also use a `jest.setup.js` file, but you'll need to uncomment the `// setupFilesAfterEnv: ['./jest.setup.js'],` line.
+
+Then import the module (here it's jquery) at the beginning of your `*.test.js` file (or use the `jest.setup.js` file):
+
+```js
+const $ = require('jquery');
+```
+
+### Guide - Mock any Function / API
+
+[3-Step Guide to MOck an API Call in Jest](https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb)
+
+[How to mock functions globally.](https://medium.com/@arivu_a/how-to-mock-functions-globally-in-jest-f267fedf7683)
 
 ## Resource(s)
 
