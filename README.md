@@ -1,19 +1,20 @@
 # Unit Testing with Jest
 
-- [Unit Testing with Jest](#unit-testing-with-jest)
-  - [TDD](#tdd)
-  - [Installation](#installation)
-    - [NPM initialize](#npm-initialize)
-    - [Installing Jest as a Developer Dependency](#installing-jest-as-a-developer-dependency)
-    - [Let Jest Use Coverage](#let-jest-use-coverage)
-    - [Generate a Basic Configuration File](#generate-a-basic-configuration-file)
-    - [Intellisense](#intellisense)
-    - [Check if Jest Works or Not](#check-if-jest-works-or-not)
-  - [Guide](#guide)
-    - [Guide - Add Globals](#guide---add-globals)
-    - [Guide - Adding Modules / Edit Jest Config File](#guide---adding-modules--edit-jest-config-file)
-    - [Guide - Mock any Function / API](#guide---mock-any-function--api)
-  - [Resource(s)](#resources)
+-   [Unit Testing with Jest](#unit-testing-with-jest)
+    -   [TDD](#tdd)
+    -   [Installation](#installation)
+        -   [NPM initialize](#npm-initialize)
+        -   [Installing Jest as a Developer Dependency](#installing-jest-as-a-developer-dependency)
+        -   [Let Jest Use Coverage](#let-jest-use-coverage)
+        -   [Generate a Basic Configuration File](#generate-a-basic-configuration-file)
+        -   [Intellisense](#intellisense)
+        -   [Check if Jest Works or Not](#check-if-jest-works-or-not)
+    -   [Guide](#guide)
+        -   [Guide - Add Globals](#guide---add-globals)
+        -   [Guide - Adding Modules / Edit Jest Config File](#guide---adding-modules--edit-jest-config-file)
+        -   [Guide - Mock any Function / API](#guide---mock-any-function--api)
+    -   [Example Test Functions](#example-test-functions)
+    -   [Resource(s)](#resources)
 
 ## TDD
 
@@ -45,9 +46,9 @@ Edit the `"test"` value in the `package.json` under `"scripts"`:
 ...
 ```
 
-- **Coverage** - Creates a html documentation for your test suite
-- **WatchAll** - Restarts testing after save automatically
-- **Verbose** - Will give you more information in the terminal
+-   **Coverage** - Creates a html documentation for your test suite
+-   **WatchAll** - Restarts testing after save automatically
+-   **Verbose** - Will give you more information in the terminal
 
 This way you get more information when testing, and it will give you a nice html page to document your tests.
 
@@ -64,11 +65,9 @@ Create a new (or edit already existing) `jsconfig.json` and add the following co
 
 ```json
 {
-  "typeAcquisition": {
-    "include": [
-      "jest"
-    ]
-  }
+    "typeAcquisition": {
+        "include": ["jest"]
+    }
 }
 ```
 
@@ -76,7 +75,7 @@ Now you should get autocompletion for Jest in VScode.
 
 ### Check if Jest Works or Not
 
-- Check if jest installation works and run jest with `npm test`.
+-   Check if jest installation works and run jest with `npm test`.
 
 ## Guide
 
@@ -100,7 +99,7 @@ And edit `functions.js` to:
 
 ```js
 const functions = {
-    add: (num1, num2) => num1 + num2
+    add: (num1, num2) => num1 + num2,
 };
 
 module.exports = functions;
@@ -129,9 +128,9 @@ By answering the question when using `jest --init` or edit the `jest.config.js` 
 
 ```js
 module.exports = {
-  // setupFilesAfterEnv: ['./jest.setup.js'],
-  testEnvironment: 'jsdom'
-}
+    // setupFilesAfterEnv: ['./jest.setup.js'],
+    testEnvironment: 'jsdom',
+};
 ```
 
 Note, you can also use a `jest.setup.js` file, but you'll need to uncomment the `// setupFilesAfterEnv: ['./jest.setup.js'],` line.
@@ -147,6 +146,12 @@ const $ = require('jquery');
 [3-Step Guide to MOck an API Call in Jest](https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb)
 
 [How to mock functions globally.](https://medium.com/@arivu_a/how-to-mock-functions-globally-in-jest-f267fedf7683)
+
+## Example Test Functions
+
+For the API call we need to install axios (or fetch): `npm i axios` which is an http client just like fetch but a little easier.\
+
+Then create the `fetchUser` function in the `functions.js` file and make a get request to a [JSONPlaceholder API](https://jsonplaceholder.typicode.com). This is a Fake Online REST API for Testing and Prototyping. I'm using the VScode extension Auto Import, this will automatically import the required axios package at the top of the `functions.js` file.
 
 ## Resource(s)
 
