@@ -1,20 +1,21 @@
 # Unit Testing with Jest
 
--   [Unit Testing with Jest](#unit-testing-with-jest)
-    -   [TDD](#tdd)
-    -   [Installation](#installation)
-        -   [NPM initialize](#npm-initialize)
-        -   [Installing Jest as a Developer Dependency](#installing-jest-as-a-developer-dependency)
-        -   [Let Jest Use Coverage](#let-jest-use-coverage)
-        -   [Generate a Basic Configuration File](#generate-a-basic-configuration-file)
-        -   [Intellisense](#intellisense)
-        -   [Check if Jest Works or Not](#check-if-jest-works-or-not)
-    -   [Guide](#guide)
-        -   [Guide - Add Globals](#guide---add-globals)
-        -   [Guide - Adding Modules / Edit Jest Config File](#guide---adding-modules--edit-jest-config-file)
-        -   [Guide - Mock any Function / API](#guide---mock-any-function--api)
-    -   [Example Test Functions](#example-test-functions)
-    -   [Resource(s)](#resources)
+- [Unit Testing with Jest](#unit-testing-with-jest)
+  - [TDD](#tdd)
+  - [Installation](#installation)
+    - [NPM initialize](#npm-initialize)
+    - [Installing Jest as a Developer Dependency](#installing-jest-as-a-developer-dependency)
+    - [Let Jest Use Coverage](#let-jest-use-coverage)
+    - [Generate a Basic Configuration File](#generate-a-basic-configuration-file)
+    - [Intellisense](#intellisense)
+    - [Check if Jest Works or Not](#check-if-jest-works-or-not)
+  - [Guide](#guide)
+    - [Guide - Add Globals](#guide---add-globals)
+    - [Guide - Adding Modules / Edit Jest Config File](#guide---adding-modules--edit-jest-config-file)
+    - [Guide - Mock any Function / API](#guide---mock-any-function--api)
+  - [Example Test Functions](#example-test-functions)
+  - [Jest-Extended](#jest-extended)
+  - [Resource(s)](#resources)
 
 ## TDD
 
@@ -65,9 +66,9 @@ Create a new (or edit already existing) `jsconfig.json` and add the following co
 
 ```json
 {
-    "typeAcquisition": {
-        "include": ["jest"]
-    }
+	"typeAcquisition": {
+		"include": ["jest"]
+	}
 }
 ```
 
@@ -87,11 +88,11 @@ Now you need to import the script so edit `functions.test.js` and add:
 const functions = require('./functions');
 
 test('Adds 2 + 2 to equal 4', () => {
-    expect(functions.add(2, 2)).toBe(4);
+	expect(functions.add(2, 2)).toBe(4);
 });
 
 test('Adds 2 + 2 to NOT equal 5', () => {
-    expect(functions.add(2, 2)).not.toBe(5);
+	expect(functions.add(2, 2)).not.toBe(5);
 });
 ```
 
@@ -99,7 +100,7 @@ And edit `functions.js` to:
 
 ```js
 const functions = {
-    add: (num1, num2) => num1 + num2,
+	add: (num1, num2) => num1 + num2,
 };
 
 module.exports = functions;
@@ -128,8 +129,8 @@ By answering the question when using `jest --init` or edit the `jest.config.js` 
 
 ```js
 module.exports = {
-    // setupFilesAfterEnv: ['./jest.setup.js'],
-    testEnvironment: 'jsdom',
+	// setupFilesAfterEnv: ['./jest.setup.js'],
+	testEnvironment: 'jsdom',
 };
 ```
 
@@ -152,6 +153,12 @@ const $ = require('jquery');
 For the API call we need to install axios (or fetch): `npm i axios` which is an http client just like fetch but a little easier.\
 
 Then create the `fetchUser` function in the `functions.js` file and make a get request to a [JSONPlaceholder API](https://jsonplaceholder.typicode.com). This is a Fake Online REST API for Testing and Prototyping. I'm using the VScode extension Auto Import, this will automatically import the required axios package at the top of the `functions.js` file.
+
+Also see [testim.io](https://www.testim.io/blog/node-js-unit-testing-get-started-quickly-with-examples/) to learn more how to work with http services.
+
+## Jest-Extended
+
+[install jest-extended for more matchers](https://github.com/jest-community/jest-extended)
 
 ## Resource(s)
 

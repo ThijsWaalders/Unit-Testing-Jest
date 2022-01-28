@@ -1,5 +1,5 @@
 // import reverseString
-const reverseString = require('./reverseString');
+const reverseString = require('../reverseString');
 
 // Check if function is defined
 test('Is reverseString function defined', () => {
