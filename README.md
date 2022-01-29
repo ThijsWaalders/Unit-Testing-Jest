@@ -70,11 +70,9 @@ Lets make life easier by setting up some tools and configurations
 Edit the `"test"` value in the `package.json` under `"scripts"`:
 
 ```json
-...
 "scripts": {
     "test":"jest --coverage --watchAll --verbose"
 },
-...
 ```
 
 -   **Coverage** - Creates a html documentation for your test suite
