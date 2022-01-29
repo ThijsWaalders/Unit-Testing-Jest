@@ -1,4 +1,6 @@
 // feedreader.js
+// Test with external npm packages like jQuery and google api
+//
 // Add app.js script to this test file
 const allFeeds = require('../feedReader');
 
